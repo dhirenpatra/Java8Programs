@@ -28,7 +28,6 @@ class Student {
 public class BasicLambda {
 
     public void test() {
-
         final int[] intarray = {1,2,3,4,5};
         final String name = "DhIrEn";
         final Integer age = 20;
