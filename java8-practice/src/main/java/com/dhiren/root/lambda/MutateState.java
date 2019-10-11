@@ -3,6 +3,7 @@ package com.dhiren.root.lambda;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class MutateState {
 
@@ -34,8 +35,21 @@ public class MutateState {
     System.err.println(result); //[DORY, GILL, NEMO]
   }
 
+  private static void parallelStreamV2() {
+    List<String> names =
+            Arrays.asList("Dory", "Gill", "Bruce", "Nemo", "Darla", "Marlin", "Jacques");
+
+    List<String> result = names.parallelStream()
+            .filter(name -> name.length() == 4)
+            .map(String::toUpperCase)
+            .collect(Collectors.toList());
+
+    System.err.println(result); //[DORY, GILL, NEMO]
+  }
+
   public static void main(String[] args) {
     stream();
     parallelStream();
+    parallelStreamV2();
   }
 }

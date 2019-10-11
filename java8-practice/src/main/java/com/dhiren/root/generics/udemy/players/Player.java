@@ -1,4 +1,4 @@
-package com.dhiren.root.generics.players;
+package com.dhiren.root.generics.udemy.players;
 
 public abstract class Player {
 

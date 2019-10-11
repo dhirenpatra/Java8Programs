@@ -1,9 +1,8 @@
-package com.dhiren.root.generics.league;
+package com.dhiren.root.generics.udemy.league;
 
-import com.dhiren.root.generics.team.Team;
+import com.dhiren.root.generics.udemy.team.Team;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 

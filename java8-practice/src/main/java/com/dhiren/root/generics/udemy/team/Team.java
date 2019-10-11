@@ -1,6 +1,6 @@
-package com.dhiren.root.generics.team;
+package com.dhiren.root.generics.udemy.team;
 
-import com.dhiren.root.generics.players.Player;
+import com.dhiren.root.generics.udemy.players.Player;
 
 import java.util.ArrayList;
 import java.util.List;
