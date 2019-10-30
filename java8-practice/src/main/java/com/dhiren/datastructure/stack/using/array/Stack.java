@@ -33,6 +33,7 @@ public class Stack<T> {
         if(totalItems == capacity())
             resize(capacity() * 2);
         this.data[totalItems++] = data;
+        System.out.println("Item pushed : " +data);
     }
 
     private void resize(int capacity) {
@@ -44,12 +45,14 @@ public class Stack<T> {
         data = tempArray;
     }
 
-    public void pop() {
+    public T pop() {
         T item = this.data[--totalItems];
         if(totalItems > 0 && totalItems == capacity() / 4) {
             resize(capacity() / 2);
         }
         this.data[totalItems] = null;
+        System.out.println("Item Popped : " +item);
+        return item;
     }
 
     @Override
