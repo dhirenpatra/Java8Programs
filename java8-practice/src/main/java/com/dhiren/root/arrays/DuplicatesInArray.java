@@ -30,6 +30,7 @@ public class DuplicatesInArray {
 
     private static void findNDuplicateFromArray(int[] array, int n) {
         int counter = 0 ;
+        // [1,2,3,2,1,3,4,5,4,6]
         for(int index = 0 ; index < array.length ; index++) {
             if(array[Math.abs(array[index])] > 0) {
                 array[Math.abs(array[index])] = -array[Math.abs(array[index])];
