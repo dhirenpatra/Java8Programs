@@ -140,4 +140,20 @@ public class LinkedListV2<T extends Comparable> implements List<T> {
         head.setNode(null);
         size = 0;
     }
+
+    @Override
+    public void reverse() {
+        Node<T> previous = null;
+        Node<T> current = this.head;
+        Node<T> next = null;
+
+        while(current != null) {
+            next = current.getNode();
+            current.setNode(previous);
+            previous = current;
+            current = current.getNode();
+        }
+
+        this.head = previous;
+    }
 }

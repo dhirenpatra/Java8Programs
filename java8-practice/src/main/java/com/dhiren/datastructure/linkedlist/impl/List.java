@@ -6,5 +6,6 @@ public interface List<T extends Comparable> {
     void remove(T data);
     int size();
     void clear();
+    void reverse();
 
 }
