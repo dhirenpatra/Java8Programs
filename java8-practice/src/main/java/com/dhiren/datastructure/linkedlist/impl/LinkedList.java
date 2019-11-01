@@ -68,4 +68,9 @@ public class LinkedList<T extends Comparable> implements List<T> {
     public void clear() {
 
     }
+
+    @Override
+    public void reverse() {
+
+    }
 }

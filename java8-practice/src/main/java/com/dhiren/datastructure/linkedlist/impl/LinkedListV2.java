@@ -68,15 +68,15 @@ public class LinkedListV2<T extends Comparable> implements List<T> {
     }
 
     public void print() {
+        System.out.println("Head :" + this.head);
         Node currentNode = head;
-        System.out.println("------");
         while (currentNode.getNode() != null) {
-            System.out.println(currentNode.getData());
+            System.out.print(currentNode.getData());
             currentNode = currentNode.getNode();
-            System.out.println("------");
+            System.out.print(" ------> ");
             if(currentNode.getNode() == null) {
-                System.out.println(currentNode.getData());
-                System.out.println("------");
+                System.out.print(currentNode.getData());
+                System.out.println(" ------> NULL");
             }
 
         }
@@ -151,7 +151,7 @@ public class LinkedListV2<T extends Comparable> implements List<T> {
             next = current.getNode();
             current.setNode(previous);
             previous = current;
-            current = current.getNode();
+            current = next;
         }
 
         this.head = previous;
