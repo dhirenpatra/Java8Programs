@@ -1,4 +1,4 @@
-package com.dhiren.others;
+package com.dhiren.root;
 
 import java.io.BufferedReader;
 import java.io.IOException;
