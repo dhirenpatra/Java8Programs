@@ -42,6 +42,33 @@ public class ReverseString {
 		return charList;
 	}
 
+	public String reverseStringMethodFive(String inputString) {
+		char[] charArray = inputString.toCharArray();
+		for(int start = 0 ; start < inputString.length() / 2 ; start++) {
+			swap(charArray,start,inputString.length() - start - 1);
+		}
+		return new String(charArray);
+	}
+
+	public String reverseStringMethodSix(String inputString) {
+
+		char[] charArray = inputString.toCharArray();
+		int start = 0;
+		int end = inputString.length() -1;
+		while (start < end) {
+			swap(charArray,start,end);
+			start++;
+			end--;
+		}
+		return new String(charArray);
+	}
+
+	private void swap(char[] charArray, int start, int end) {
+		char temp = charArray[start];
+		charArray[start] = charArray[end];
+		charArray[end] = temp;
+	}
+
 	public static void main(String[] args) {
 		ReverseString reverseString = new ReverseString();
 		System.err.println(" Method 1 using byte[]                ::  "
@@ -52,6 +79,11 @@ public class ReverseString {
 		        + reverseString.reverseStringMethodThree(value));
 		System.err.println(" Method 4 using Collections   reverse ::  "
 		        + reverseString.reverseStringMethodFour(value));
+
+		System.err.println(" Method 5 using Collections   reverse ::  "
+				+ reverseString.reverseStringMethodFive(value));
+		System.err.println(" Method 6 using Collections   reverse ::  "
+				+ reverseString.reverseStringMethodSix(value));
 	}
 
 }

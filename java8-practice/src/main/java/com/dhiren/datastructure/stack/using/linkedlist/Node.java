@@ -1,9 +1,14 @@
 package com.dhiren.datastructure.stack.using.linkedlist;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Node<T extends Comparable> {
 
     private T data;
     private Node<T> nextNode;
+
+
 
     public Node(T data) {
         this.data = data;
