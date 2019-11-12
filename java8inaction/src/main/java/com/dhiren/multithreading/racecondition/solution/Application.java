@@ -1,4 +1,4 @@
-package com.dhiren.multithreading.racecondition;
+package com.dhiren.multithreading.racecondition.solution;
 
 public class Application {
 
