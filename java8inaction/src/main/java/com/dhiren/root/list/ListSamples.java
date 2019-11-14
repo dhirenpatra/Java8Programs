@@ -59,6 +59,5 @@ public class ListSamples {
 		System.out.println(age);
 		System.out.println(personList);
 
-
 	}
 }
