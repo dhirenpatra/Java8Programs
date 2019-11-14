@@ -78,24 +78,7 @@ public class ProducerConsumer {
         Thread[] producerThreads = new Thread[10000];
         Thread[] consumerThreads = new Thread[100];
 
-        for (int i = 1 ; i < producerThreads.length ; i++) {
-
-            producerThreads[i] = new Thread(producerRunnable);
-            producerThreads[i].setName("Thread Producer -"+i);
-            producerThreads[i].start();
-
-            consumerThreads[i] = new Thread(consumerRunnable);
-            consumerThreads[i].setName("Thread Consumer -"+i);
-            consumerThreads[i].start();
-
-        }
-        for (int i = 1 ; i < producerThreads.length ; i++) {
-            try {
-                producerThreads[i].join();
-                consumerThreads[i].join();
-            } catch (InterruptedException e) {
-            }
-        }
+        ProducerConsumerUsingLock.getThreadsStarted(producerRunnable, consumerRunnable, producerThreads, consumerThreads);
 
     }
 }

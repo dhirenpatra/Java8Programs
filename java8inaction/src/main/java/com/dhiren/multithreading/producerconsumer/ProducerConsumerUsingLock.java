@@ -23,9 +23,8 @@ public class ProducerConsumerUsingLock {
     }
 
     static class Producer {
-
         public void produce() throws InterruptedException {
-            while(true) {
+            while (true) {
                 lockObj.lock();
                 try {
                     while (isFull()) {
@@ -42,15 +41,12 @@ public class ProducerConsumerUsingLock {
                     lockObj.unlock();
                 }
             }
-
         }
-
     }
 
     static class Consumer {
-
         public void consume() throws InterruptedException {
-            while(true) {
+            while (true) {
                 lockObj.lock();
                 try {
                     while (isEmpty()) {
@@ -93,6 +89,11 @@ public class ProducerConsumerUsingLock {
         Thread[] producerThreads = new Thread[5];
         Thread[] consumerThreads = new Thread[5];
 
+        getThreadsStarted(producerRunnable, consumerRunnable, producerThreads, consumerThreads);
+
+    }
+
+    static void getThreadsStarted(Runnable producerRunnable, Runnable consumerRunnable, Thread[] producerThreads, Thread[] consumerThreads) {
         for (int i = 1; i < producerThreads.length; i++) {
 
             producerThreads[i] = new Thread(producerRunnable);
@@ -109,8 +110,8 @@ public class ProducerConsumerUsingLock {
                 producerThreads[i].join();
                 consumerThreads[i].join();
             } catch (InterruptedException e) {
+                e.printStackTrace();
             }
         }
-
     }
 }
