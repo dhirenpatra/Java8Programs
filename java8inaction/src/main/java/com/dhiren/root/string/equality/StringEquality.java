@@ -21,7 +21,7 @@ public class StringEquality {
         String s11 = "GFG";
         StringBuffer sb11 = new StringBuffer("GFG");
         System.out.println(s11.equals(sb11));
-
+        System.out.println(sb11.equals(s11));
         System.err.println("@@@@@@@@@@@@@@@@@@@@@@@@");
 
         String s4 = "GFG";
@@ -30,6 +30,17 @@ public class StringEquality {
         System.out.println(s4.equals(s3));
         System.out.println(s4 == s3);
 
+        String dhiren = "Dhiren";
+        String dhiren1 = new String("Dhiren").intern();
+        System.out.println(dhiren == dhiren1);
+        System.out.println(dhiren.equals(dhiren1));
+
+        String a = "GFG";
+        StringBuffer b = new StringBuffer("GFG");
+        System.out.println(b);
+        System.out.println(a);
+        System.out.println(a.equals(b.toString()));
+        System.out.println(b.equals(a));
     }
 
 }

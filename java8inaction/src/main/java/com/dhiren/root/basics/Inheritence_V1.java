@@ -42,7 +42,6 @@ public class Inheritence_V1 {
 		Apple myApple = new Apple();
 		myApple.m2();
 		myApple.m1();
-		System.err.println("&&&&&&&&&&&&&&&&&&&&&&&&&&&&");
 		Fruit fruit = new Apple();
 		fruit.m1();
 	}

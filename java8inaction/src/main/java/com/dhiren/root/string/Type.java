@@ -21,7 +21,7 @@ public enum Type {
 	public static Type getSosFreightType(String code) {
 
 		return Arrays.stream(values())
-				.filter(ft -> ft.getType()
+				.filter(type -> type.getType()
 						.equals(code))
 				.findAny()
 				.orElse(null);
