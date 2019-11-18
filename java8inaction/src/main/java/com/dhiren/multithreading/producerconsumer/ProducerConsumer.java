@@ -21,14 +21,16 @@ public class ProducerConsumer {
         public void produce() throws InterruptedException {
             while (true) {
                 synchronized (lockObj) {
-                    while (isFull())
+                    while (isFull()){
                         lockObj.wait();
+                        Thread.sleep(5000);
+                    }
                     System.err.println("Thread is : "+Thread.currentThread().getName());
                     System.out.print("Producer produced - Now list contains --> ");
                     intArray.add(1);
                     System.out.println(intArray);
                     lockObj.notifyAll();
-                    Thread.sleep(50);
+                    Thread.sleep(2000);
                 }
             }
 
@@ -41,14 +43,16 @@ public class ProducerConsumer {
         public void consume() throws InterruptedException {
             while (true) {
                 synchronized (lockObj) {
-                    while (isEmpty())
+                    while (isEmpty()) {
                         lockObj.wait();
+                        Thread.sleep(5000);
+                    }
                     System.err.println("Thread is : "+Thread.currentThread().getName());
                     System.out.print("Consumer consumed - Now list contains --> ");
                     intArray.remove(intArray.size() - 1);
                     System.out.println(intArray);
                     lockObj.notifyAll();
-                    Thread.sleep(100);
+                    Thread.sleep(2000);
                 }
             }
         }
@@ -75,8 +79,8 @@ public class ProducerConsumer {
             }
         };
 
-        Thread[] producerThreads = new Thread[10000];
-        Thread[] consumerThreads = new Thread[100];
+        Thread[] producerThreads = new Thread[2];
+        Thread[] consumerThreads = new Thread[2];
 
         ProducerConsumerUsingLock.getThreadsStarted(producerRunnable, consumerRunnable, producerThreads, consumerThreads);
 
