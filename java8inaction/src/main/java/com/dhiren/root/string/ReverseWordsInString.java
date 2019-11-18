@@ -23,7 +23,7 @@ public class ReverseWordsInString {
 
 	public static void main(String[] args) {
 		ReverseWordsInString reverseString = new ReverseWordsInString();
-		System.err.println(" Reverse a sentence n" +reverseString.reverseSentence(value));
+		System.err.println(" Reverse a sentence : " +reverseString.reverseSentence(value));
 	}
 
 }
