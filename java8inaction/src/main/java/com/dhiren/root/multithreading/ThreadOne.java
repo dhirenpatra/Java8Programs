@@ -51,7 +51,7 @@ class ThreadDriver {
         two.interrupt();
         three.start();
         three.interrupt();
-        three.interrupt();
+        //three.interrupt();
 
         System.out.println("Thread 3 is interrupted ?? "+three.isInterrupted());
         System.out.println("Thread 2 is interrupted ?? "+two.isInterrupted());
