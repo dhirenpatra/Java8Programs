@@ -31,6 +31,7 @@ public class ProducerConsumer {
                     System.out.println(intArray);
                     lockObj.notifyAll();
                     Thread.sleep(2000);
+                    Thread.sleep(100);
                 }
             }
 
