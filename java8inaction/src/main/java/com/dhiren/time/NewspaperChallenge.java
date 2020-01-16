@@ -5,41 +5,32 @@ import com.dhiren.time.paper.*;
 import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.time.Month;
-import java.time.ZoneId;
-import java.util.Calendar;
 import java.util.List;
-import java.util.TimeZone;
 
 public class NewspaperChallenge {
     public static void main(String[] args) {
-
-        Calendar calendar = Calendar.getInstance(TimeZone.getTimeZone(ZoneId.of("+05:30")));
-        calendar.set(2020, 0, 1);
-
         Month month = Month.of(LocalDate.now().getMonthValue());
         int totalDays = month.maxLength();
-
+        System.err.println("Current Month is : "+month.name());
+        System.err.println("Total number of days in "+ month.name() + " is : " +totalDays);
         calculateCostInEnumListOfPapers(month,totalDays);
         calculateCostInStringListOfPapers(month,totalDays);
-
-    }
-
-    private static void calculateCostInStringListOfPapers(Month month , int totalDays) {
-        double cost = 0;
-        List<String> paperList = List.of("TOI", "Hindu", "ET", "BM", "HT");
-        cost = getSubscriptionCostV2(paperList, month, totalDays, cost);
-        System.out.println("Cost of all \"TOI\", \"Hindu\", \"ET\", \"BM\", \"HT\" is : " +cost);
     }
 
     private static void calculateCostInEnumListOfPapers(Month month , int totalDays) {
-        double cost = 0;
         List<AllPapers> papers = List.of(AllPapers.TOI, AllPapers.BM);
-        cost = getSubscriptionCost(papers, month, totalDays, cost);
+        double cost = getSubscriptionCost(papers, month, totalDays);
         System.out.println("Cost of all \"TOI\", \"BM\" is : " +cost);
     }
 
-    private static double getSubscriptionCost(List<AllPapers> papers, Month month, int totalDays, double cost) {
+    private static void calculateCostInStringListOfPapers(Month month , int totalDays) {
+        List<String> paperList = List.of("TOI", "Hindu", "ET", "BM", "HT");
+        double cost = getSubscriptionCostV2(paperList, month, totalDays);
+        System.out.println("Cost of all \"TOI\", \"Hindu\", \"ET\", \"BM\", \"HT\" is : " +cost);
+    }
 
+    private static double getSubscriptionCost(List<AllPapers> papers, Month month, int totalDays) {
+        double cost = 0;
         for (int start = 1; start <= totalDays; start++) {
             for (AllPapers paper : papers) {
                 LocalDate date = LocalDate.of(2020, month, start);
@@ -60,7 +51,8 @@ public class NewspaperChallenge {
         return cost;
     }
 
-    private static double getSubscriptionCostV2(List<String> papers, Month month, int totalDays, double cost) {
+    private static double getSubscriptionCostV2(List<String> papers, Month month, int totalDays) {
+        double cost = 0;
         for (int start = 1; start <= totalDays; start++) {
             for (String paper : papers) {
                 LocalDate date = LocalDate.of(2020, month, start);
@@ -81,16 +73,17 @@ public class NewspaperChallenge {
         return cost;
     }
 
-    private static double getCost(double cost, DayOfWeek dayOfWeek1, AllPapers papers) {
-        switch (dayOfWeek1) {
+    private static double getCost(double cost, DayOfWeek dayOfWeek, AllPapers papers) {
+
+        switch (dayOfWeek) {
             case SATURDAY:
-                cost = cost + papers.getNewsPaper().getSaturdayPrice();
+                cost = cost + papers.getSaturdayRate();
                 break;
             case SUNDAY:
-                cost = cost + papers.getNewsPaper().getSundayPrice();
+                cost = cost + papers.getSundayRate();
                 break;
             default:
-                cost = cost + papers.getNewsPaper().getWeekDayPrice();
+                cost = cost + papers.getWeekdayRate();
                 break;
         }
         return cost;

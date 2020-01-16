@@ -6,30 +6,42 @@ public enum AllPapers {
 
     TOI {
         public NewsPaper getNewsPaper() {
-            return new TOI(3,5,6);
+            return new TOI(3, 5, 6);
         }
     },
-    HINDU{
+    HINDU {
         public NewsPaper getNewsPaper() {
-            return new Hindu(2.5,4,4);
+            return new Hindu(2.5, 4, 4);
         }
     },
-    ET{
+    ET {
         public NewsPaper getNewsPaper() {
-            return new ET(2,2,10);
+            return new ET(2, 2, 10);
         }
     },
-    BM{
+    BM {
         public NewsPaper getNewsPaper() {
-            return new BM(1.5,1.5,1.5);
+            return new BM(1.5, 1.5, 1.5);
         }
     },
-    HT{
+    HT {
         public NewsPaper getNewsPaper() {
-            return new HT(2,4,4);
+            return new HT(2, 4, 4);
         }
     };
 
     public abstract NewsPaper getNewsPaper();
+
+    public double getSaturdayRate() {
+        return getNewsPaper().getSaturdayPrice();
+    }
+
+    public double getSundayRate() {
+        return getNewsPaper().getSundayPrice();
+    }
+
+    public double getWeekdayRate() {
+        return getNewsPaper().getWeekDayPrice();
+    }
 
 }
