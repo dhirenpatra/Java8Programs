@@ -16,11 +16,22 @@ public class FibonacciSeries {
         System.out.println(Arrays.toString(array));
     }
 
+    static int n1 = 0 , n2 = 1 , n3;
+    private static void printSeriesInRecursion(int number) {
+
+        if(number > 0){
+            n3 = n1 + n2;
+            n1 = n2;
+            n2 = n3;
+            System.out.print( " "+n3);
+            printSeriesInRecursion(number - 1);
+        }
+    }
+
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Enter length of the search");
-        int length = scanner.nextInt();
+        int length = 12;
         printSeries(length);
+        printSeriesInRecursion(12);
     }
 
 }
